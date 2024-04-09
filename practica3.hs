@@ -172,6 +172,29 @@ comparar a b | mod a 100 < mod b 100 = 1
              | mod a 100 > mod b 100 = -1 
              | mod a 100 == mod b 100 = 0 
 
+sumaUltimoDosDigitos :: Int -> Int 
+sumaUltimoDosDigitos x = digitoDecenas x + digitoUnidades x
+
+
 -- Ejercicio 9 
 
-{-  -}
+{- f1 devuelve 1 si la entrada es 0 y para otro caso devuelve 0
+problemaf1 (k:Float): Float {
+asegura: {res=1 <-> k == 0}
+aegura: {res=0 <-> k /= 0}
+}
+ -}
+
+ {-
+ f2 devuelve 15 si la entrada es 1 y f 1 devuelve -15 si la entrada es -1
+
+ problemaf2 (n:Float): Float {
+ 
+
+
+
+ }
+ 
+ 
+ 
+ -}
