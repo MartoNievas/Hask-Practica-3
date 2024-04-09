@@ -159,3 +159,8 @@ bisiesto :: Int -> Bool
 bisiesto n | mod n 4 == 0 || mod n 400 == 0 = True 
            | mod n 100 == 0 = False
            | otherwise = False
+
+-- Ejercicio 7 
+
+distanciaManhanttan :: (Float,Float,Float) -> (Float,Float,Float) -> Float
+distanciaManhanttan (a,b,c) (d,e,f) = abs (a - d) + abs (b - c) + abs (c - f)
