@@ -152,3 +152,10 @@ problemaF n | n <= 7 = n^2
 problemaG :: Int -> Int 
 problemaG n | even n = div n 2 
             | otherwise = 3*n + 1
+
+-- Ejercicio 6 
+
+bisiesto :: Int -> Bool
+bisiesto n | mod n 4 == 0 || mod n 400 == 0 = True 
+           | mod n 100 == 0 = False
+           | otherwise = False
