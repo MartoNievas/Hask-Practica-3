@@ -140,3 +140,15 @@ estanRelacionados :: Int -> Int -> Bool
 estanRelacionados a b | mod a b == 0 = True
                       | otherwise = False
                                         
+-- Ejercicio 5 
+
+todosMenores :: (Int,Int,Int) -> Bool
+todosMenores (a,b,c) = f a > g a && f b > g b && f c > g c 
+
+problemaF :: Int -> Int
+problemaF n | n <= 7 = n^2
+            | n > 7 = 2*n - 1
+
+problemaG :: Int -> Int 
+problemaG n | even n = div n 2 
+            | otherwise = 3*n + 1
