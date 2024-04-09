@@ -164,3 +164,14 @@ bisiesto n | mod n 4 == 0 || mod n 400 == 0 = True
 
 distanciaManhanttan :: (Float,Float,Float) -> (Float,Float,Float) -> Float
 distanciaManhanttan (a,b,c) (d,e,f) = abs (a - d) + abs (b - c) + abs (c - f)
+
+-- Ejercicio 8 
+
+comparar :: Int -> Int -> Int 
+comparar a b | mod a 100 < mod b 100 = 1 
+             | mod a 100 > mod b 100 = -1 
+             | mod a 100 == mod b 100 = 0 
+
+-- Ejercicio 9 
+
+{-  -}
