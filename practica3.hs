@@ -132,3 +132,11 @@ crearPar a b = (a,b)
 
 invertirPar :: (a,b) -> (b,a)
 invertirPar (a,b) = (b,a)
+
+
+-- Ejercicio 3 
+
+estanRelacionados :: Int -> Int -> Bool
+estanRelacionados a b | mod a b == 0 = True
+                      | otherwise = False
+                                        
