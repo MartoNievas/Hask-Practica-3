@@ -60,7 +60,7 @@ mismoIntervalo x y = (x <= 3 && y <= 3) || (x >= 7 && y >= 7) || ((x > 3 && x <=
 filterNonRepeated :: Eq a => [a] -> [a]
 filterNonRepeated [] = []
 filterNonRepeated (x:xs)
-    | x elem xs = filterNonRepeated (filter (/= x) xs) -- If x is repeated, filter it out
+    | x `elem` xs = filterNonRepeated (filter (/= x) xs) -- If x is repeated, filter it out
     | otherwise = x : filterNonRepeated xs             -- Otherwise, keep it
 
 sumaDistintos :: Int -> Int -> Int -> Int
@@ -68,17 +68,67 @@ sumaDistintos x y z = sum . filterNonRepeated $ [x, y, z]
 
 -- H
 esMultiploDe :: Int -> Int -> Bool
-esMultiploDe x y = x mod y == 0
+esMultiploDe x y = x `mod` y == 0
 
 -- I
 digitoUnidades :: Int -> Int 
-digitoUnidades x = abs (x mod 10) 
+digitoUnidades x = abs (x `mod` 10) 
 
 -- J
 digitoDecenas :: Int -> Int 
-digitoDecenas x = digitoUnidades(x div 10)
+digitoDecenas x = digitoUnidades(x `div` 10)
 
 {- EJERCICIO 4  -}
+-- C
+
+prodInt :: (Float,Float) -> (Float,Float) -> (Float,Float)
+prodInt (a,b) (c,d) = (a * c, b * d)
+
 -- B
 todoMenor :: (Float, Float) -> (Float, Float) -> Bool
 todoMenor x y = fst x < fst y && snd x < snd y
+
+--Ejercicio con Pattern Matching
+
+todoMenorPM :: (Float,Float) -> (Float,Float) -> Bool
+todoMenorPM (a,b) (c,d) = a < c && b < d 
+
+-- C
+ 
+distanciaPuntos :: (Float,Float) -> (Float,Float) -> Float
+distanciaPuntos (a,b) (c,d) = sqrt ((a - c) + (b - d))
+
+-- D 
+
+sumaTerna :: (Int,Int,Int) -> Int
+sumaTerna (a,b,c) = a + b + c
+
+-- E
+
+sumarSoloMultiplos :: (Int,Int,Int) -> Int -> Int
+sumarSoloMultiplos (a,b,c) d | mod a b == 0 && mod b c == 0 && mod c d == 0 = (a + b + c)   
+                             | mod a b == 0 && mod b c == 0 && mod c d /= 0 = a + b 
+                             | mod a b == 0 && mod b c /= 0 && mod c d == 0 = a + c
+                             | mod a b /= 0 && mod b c == 0 && mod c d == 0 = b + c 
+                             | mod a b == 0 && mod b c /= 0 && mod c d /= 0 = a 
+                             | mod a b /= 0 && mod b c == 0 && mod c d /= 0 = b
+                             | mod a b /= 0 && mod b c /= 0 && mod c d == 0 = c 
+                             | otherwise = 0
+
+-- F nota el comando even verifica si el elemento es par mas simple que mod 
+
+posPrimerPar :: (Int,Int, Int) -> Int
+posPrimerPar (a,b,c) | mod a 2 == 0 = 0
+                     | mod b 2 == 0 = 1
+                     | mod c 2 == 0 = 2
+                     | otherwise = 4           
+
+-- G
+
+crearPar:: a -> b-> (a,b)
+crearPar a b = (a,b)
+
+-- H 
+
+invertirPar :: (a,b) -> (b,a)
+invertirPar (a,b) = (b,a)
