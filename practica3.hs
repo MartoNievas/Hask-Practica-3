@@ -189,12 +189,39 @@ aegura: {res=0 <-> k /= 0}
  f2 devuelve 15 si la entrada es 1 y f 1 devuelve -15 si la entrada es -1
 
  problemaf2 (n:Float): Float {
- 
-
-
-
+    requiere: {n == 1 || n == -1}
+    aegura: {res = 15 <-> n== 1}
+    asegura: {res = -15 <-> n== -1}
  }
- 
- 
- 
  -}
+
+ {-
+ f3 si n es menor o igual a 9 res = 7 o si n >= 3 res = 5
+
+ problemaf3 (n:Float): Float {
+ requiere: {True}
+ asegura: {res = 7 <-> n <= 9}
+ asegura: {res = 5 <-> n >= 3}
+ }
+ -}
+
+ {- f4 es el resultado de sumar dos numeros x y y dividirlos por 2
+ 
+ problemaf3 (x:Float, y:Float): Float {
+    requiere: {True}
+    asegura: {res= a la suma de los dos elementos divivdido 2}
+ }
+  -}
+
+{- f5 es el resultadod de sumar la tupla (x, y) y dividirla por 2 
+
+problemaf5 (x, y : (Float, FLoat)): Float {
+requiere: {True}
+asegura: {res = al promedio entre los elementos de la tupla (x,y)}
+
+}
+-}
+
+{- f6 es  -}
+
+
