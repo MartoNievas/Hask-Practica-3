@@ -96,7 +96,7 @@ todoMenorPM (a,b) (c,d) = a < c && b < d
 -- C
  
 distanciaPuntos :: (Float,Float) -> (Float,Float) -> Float
-distanciaPuntos (a,b) (c,d) = sqrt ((a - c) + (b - d))
+distanciaPuntos (a,b) (c,d) = sqrt ((a - c)² + (b - d)²)
 
 -- D 
 
@@ -143,14 +143,14 @@ estanRelacionados a b | mod a b == 0 = True
 -- Ejercicio 5 
 
 todosMenores :: (Int,Int,Int) -> Bool
-todosMenores (a,b,c) = f a > g a && f b > g b && f c > g c 
+todosMenores (a,b,c) = F a > G a && F b > G b && F c > G c 
 
-problemaF :: Int -> Int
-problemaF n | n <= 7 = n^2
+F :: Int -> Int
+F n | n <= 7 = n^2
             | n > 7 = 2*n - 1
 
-problemaG :: Int -> Int 
-problemaG n | even n = div n 2 
+G :: Int -> Int 
+G n | even n = div n 2 
             | otherwise = 3*n + 1
 
 -- Ejercicio 6 
@@ -168,9 +168,9 @@ distanciaManhanttan (a,b,c) (d,e,f) = abs (a - d) + abs (b - c) + abs (c - f)
 -- Ejercicio 8 
 
 comparar :: Int -> Int -> Int 
-comparar a b | mod a 100 < mod b 100 = 1 
-             | mod a 100 > mod b 100 = -1 
-             | mod a 100 == mod b 100 = 0 
+comparar a b | sumaUltimoDosDigitos a > sumaUltimoDosDigitos b = -1
+             | sumaUltimoDosDigitos a < sumaUltimoDosDigitos b = 1
+             | otherwise = 0
 
 sumaUltimoDosDigitos :: Int -> Int 
 sumaUltimoDosDigitos x = digitoDecenas x + digitoUnidades x
@@ -209,7 +209,7 @@ aegura: {res=0 <-> k /= 0}
  
  problemaf3 (x:Float, y:Float): Float {
     requiere: {True}
-    asegura: {res= a la suma de los dos elementos divivdido 2}
+    asegura: {res= a+ b / 2}
  }
   -}
 
