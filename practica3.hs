@@ -222,6 +222,12 @@ asegura: {res = al promedio entre los elementos de la tupla (x,y)}
 }
 -}
 
-{- f6 es  -}
+{- f6 
+problemaf6 (x:Float, y: Int): Bool  {
+    reuqiere: {True}
+    asegura: {res= True <-> la parte entera de x es y}
+}
+
+  -}
 
 
